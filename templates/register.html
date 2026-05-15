@@ -1,41 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="card" style="max-width: 400px; margin: 0 auto;">
-    <h2>Register</h2>
-    <form method="POST" action="">
+<div class="card" style="max-width: 420px; margin: 40px auto; text-align: center;">
+    <h2 style="margin-bottom: 30px; font-size: 2em; background: linear-gradient(to right, #a855f7, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Create Account</h2>
+    <form method="POST" action="" style="text-align: left;">
         <!-- Security: CSRF Protection -->
         {{ form.hidden_tag() }}
-        <div>
-            {{ form.username.label }}<br>
+        <div style="margin-bottom: 20px;">
+            <label style="color: #94a3b8; font-weight: 500; font-size: 0.9em; margin-bottom: 8px; display: block;">{{ form.username.label.text }}</label>
             {{ form.username(size=32) }}
             {% for error in form.username.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+                <span style="color: #f43f5e; font-size: 0.85em; display: block; margin-top: -15px; margin-bottom: 10px;">{{ error }}</span>
             {% endfor %}
         </div>
-        <div>
-            {{ form.password.label }}<br>
+        <div style="margin-bottom: 20px;">
+            <label style="color: #94a3b8; font-weight: 500; font-size: 0.9em; margin-bottom: 8px; display: block;">{{ form.password.label.text }}</label>
             {{ form.password(size=32) }}
             {% for error in form.password.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+                <span style="color: #f43f5e; font-size: 0.85em; display: block; margin-top: -15px; margin-bottom: 10px;">{{ error }}</span>
             {% endfor %}
         </div>
-        <div>
-            {{ form.confirm_password.label }}<br>
+        <div style="margin-bottom: 20px;">
+            <label style="color: #94a3b8; font-weight: 500; font-size: 0.9em; margin-bottom: 8px; display: block;">{{ form.confirm_password.label.text }}</label>
             {{ form.confirm_password(size=32) }}
             {% for error in form.confirm_password.errors %}
-                <span style="color: red;">[{{ error }}]</span>
+                <span style="color: #f43f5e; font-size: 0.85em; display: block; margin-top: -15px; margin-bottom: 10px;">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div style="margin-bottom: 25px;">
+            <label style="color: #94a3b8; font-weight: 500; font-size: 0.9em; margin-bottom: 8px; display: block;">{{ form.phone.label.text }}</label>
+            {{ form.phone(size=32) }}
+            {% for error in form.phone.errors %}
+                <span style="color: #f43f5e; font-size: 0.85em; display: block; margin-top: -15px; margin-bottom: 10px;">{{ error }}</span>
             {% endfor %}
         </div>
         <div>
-            {{ form.phone.label }}<br>
-            {{ form.phone(size=32) }}
-            {% for error in form.phone.errors %}
-                <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
-        </div>
-        <div style="margin-top: 15px;">
-            {{ form.submit(class="btn") }}
+            {{ form.submit(class="btn", style="width: 100%; font-size: 1.1em; padding: 12px;") }}
         </div>
     </form>
+    <p style="margin-top: 25px; color: #64748b; font-size: 0.9em;">Already have an account? <a href="{{ url_for('auth.login') }}" style="color: #a855f7; text-decoration: none; font-weight: 600;">Login here</a></p>
 </div>
 {% endblock %}

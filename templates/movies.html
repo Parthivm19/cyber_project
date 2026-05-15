@@ -8,18 +8,18 @@
     </form>
 </div>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+<div class="grid-container">
     {% for movie in movies %}
     <div class="card">
-        <h3>{{ movie.title }} ({{ movie.year }})</h3>
-        <p style="color: #bbb;"><strong>Genre:</strong> {{ movie.genre }}</p>
-        <p>{{ movie.description }}</p>
-        <div style="margin-top: 15px;">
+        <h3 style="color: #f8fafc; font-size: 1.3em;">{{ movie.title }} <span style="font-size: 0.8em; color: #94a3b8; font-weight: normal;">({{ movie.year }})</span></h3>
+        <p style="color: #a78bfa; font-weight: 500; margin-top: -10px;">{{ movie.genre }}</p>
+        <p style="color: #cbd5e1; line-height: 1.6;">{{ movie.description }}</p>
+        <div style="margin-top: 20px;">
             <a href="{{ url_for('bookings.book_movie', movie_id=movie.id) }}" class="btn">Book Tickets</a>
         </div>
     </div>
     {% else %}
-    <p>No movies found matching your search.</p>
+    <p style="text-align: center; color: #94a3b8; padding: 40px; background: rgba(30, 41, 59, 0.4); border-radius: 12px; grid-column: 1 / -1;">No movies found matching your search.</p>
     {% endfor %}
 </div>
 {% endblock %}
