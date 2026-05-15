@@ -20,7 +20,8 @@ class Movie(db.Model):
     description = db.Column(db.Text, nullable=False)
     genre = db.Column(db.String(100), nullable=False)
     year = db.Column(db.Integer, nullable=False)
-    bookings = db.relationship('Booking', backref='movie', lazy=True)
+    image_url = db.Column(db.String(500), nullable=True) # Added for professional movie posters
+    bookings = db.relationship('Booking', backref='movie', lazy=True, cascade="all, delete-orphan")
 
 class Booking(db.Model):
     id = db.Column(db.Integer, primary_key=True)

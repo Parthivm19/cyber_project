@@ -17,3 +17,11 @@ class LoginForm(FlaskForm):
 class BookingForm(FlaskForm):
     seats = IntegerField('Number of Seats', validators=[DataRequired(), NumberRange(min=1, max=10)])
     submit = SubmitField('Book Now')
+
+class MovieForm(FlaskForm):
+    title = StringField('Movie Title', validators=[DataRequired(), Length(min=1, max=200)])
+    description = StringField('Description', validators=[DataRequired()])
+    genre = StringField('Genre', validators=[DataRequired(), Length(min=1, max=100)])
+    year = IntegerField('Release Year', validators=[DataRequired(), NumberRange(min=1900, max=2100)])
+    image_url = StringField('Poster Image URL', validators=[Length(max=500)])
+    submit = SubmitField('Add Movie')
