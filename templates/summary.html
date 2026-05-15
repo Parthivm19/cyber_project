@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+    <h2>🎟️ Booking Confirmed</h2>
+    <p>Thank you for booking with CineVault, <strong>{{ booking.user.username|e }}</strong>!</p>
+    
+    <div style="background-color: #2c2c2c; padding: 15px; border-radius: 5px; margin: 20px 0; text-align: left;">
+        <p><strong>Movie:</strong> {{ booking.movie.title|e }}</p>
+        <p><strong>Seats:</strong> {{ booking.seats }}</p>
+        <p><strong>Booking ID:</strong> #{{ booking.id }}</p>
+        <p><strong>Date:</strong> {{ booking.booking_date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+    </div>
+    
+    <p style="color: #4caf50; font-weight: bold;">Integrity signature verified successfully.</p>
+    <a href="{{ url_for('movies.list_movies') }}" class="btn">Back to Movies</a>
+</div>
+{% endblock %}

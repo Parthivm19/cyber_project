@@ -1,0 +1,11 @@
+flask
+flask-sqlalchemy
+flask-login
+flask-bcrypt
+flask-wtf
+flask-limiter
+python-dotenv
+google-generativeai
+cryptography
+markupsafe
+email-validator

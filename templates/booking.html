@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 0 auto;">
+    <h2>Book Tickets for: {{ movie.title }}</h2>
+    <p>{{ movie.description }}</p>
+    <hr style="border-color: #444;">
+    
+    <form method="POST" action="">
+        <!-- Security: CSRF Protection -->
+        {{ form.hidden_tag() }}
+        <div>
+            {{ form.seats.label }}<br>
+            {{ form.seats() }}
+            {% for error in form.seats.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </div>
+        <div style="margin-top: 15px;">
+            {{ form.submit(class="btn") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+# Virtual Environment
+venv/
+env/
+.env
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+instance/
+*.db
+*.sqlite3
+
+# Certificates
+cert.pem
+key.pem
+
+# IDEs and OS files
+.vscode/
+.idea/
+.DS_Store
