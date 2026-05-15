@@ -22,6 +22,6 @@ def configure_security_headers(app):
             "script-src 'self' 'unsafe-inline'; "
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
             "font-src 'self' data: https://fonts.gstatic.com; "
-            "img-src 'self' data: https://dummyimage.com https://images.unsplash.com;"
+            "img-src 'self' data: https://dummyimage.com https://images.unsplash.com https://image.tmdb.org;"
         )
         return response
