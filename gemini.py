@@ -5,7 +5,7 @@ def setup_gemini():
     api_key = os.getenv("GEMINI_API_KEY")
     if api_key:
         genai.configure(api_key=api_key)
-        return genai.GenerativeModel('gemini-pro')
+        return genai.GenerativeModel('gemini-2.5-flash')
     return None
 
 def get_movie_recommendation(user_query, available_movies):
