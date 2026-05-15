@@ -1,5 +1,5 @@
 import os
-import google.generativeai as genai
+import google.generativeai as genai # pyright: ignore[reportMissingImports]
 
 def setup_gemini():
     api_key = os.getenv("GEMINI_API_KEY")
@@ -25,4 +25,5 @@ def get_movie_recommendation(user_query, available_movies):
         response = model.generate_content(prompt)
         return response.text
     except Exception as e:
-        return "Error communicating with AI. Please try again later."
+        print(f"Gemini API Error: {str(e)}")
+        return f"Error communicating with AI: {str(e)}"
