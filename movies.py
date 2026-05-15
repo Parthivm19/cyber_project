@@ -8,7 +8,7 @@ movies_bp = Blueprint('movies', __name__)
 
 @movies_bp.route('/')
 def index():
-    return render_template('base.html')
+    return render_template('landing.html')
 
 @movies_bp.route('/movies')
 def list_movies():
